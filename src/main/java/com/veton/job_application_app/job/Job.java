@@ -1,12 +1,30 @@
 package com.veton.job_application_app.job;
 
-public class Job  {
+import jakarta.persistence.*;
+
+@Entity
+//@Table(name = "job_table")
+public class Job {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String description;
     private String minSalary;
     private String maxSalary;
     private String location;
+
+    public Job() {
+    }
+
+    public Job(Long id, String title, String description, String minSalary, String maxSalary, String location) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.minSalary = minSalary;
+        this.maxSalary = maxSalary;
+        this.location = location;
+    }
 
     public Long getId() {
         return id;
@@ -56,12 +74,4 @@ public class Job  {
         this.location = location;
     }
 
-    public Job(Long id, String title, String description, String minSalary, String maxSalary, String location) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.minSalary = minSalary;
-        this.maxSalary = maxSalary;
-        this.location = location;
-    }
 }
